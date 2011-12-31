@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+
+  <h2>
+  <%= @eng_post.name %>
+</h2>
+
+<p>
+  <%= @eng_post.content %>
+</p>
+
+<% if can? :update, @eng_post %>
+    <%= link_to 'Edit', edit_post_path(@eng_post) %> |<%= link_to 'Back', posts_path %>
+<% end %>
+

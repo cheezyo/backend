@@ -1,0 +1,22 @@
+<h1>Listing posts</h1>
+
+<ul>
+
+<% @posts.each do |post| %>
+  <li>
+   <%= link_to post.name, post %> | <%= link_to post.eng_posts.name, post.eng_posts %>
+
+    <% if can? :update, post %>
+        | <%= link_to 'Edit', edit_post_path(post) %>
+    <% end %>
+    <% if can? :destroy, post %>
+        | <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<br />
+<% if can? :create, @posts %>
+    <%= link_to 'New Post', new_post_path %>
+<% end %>

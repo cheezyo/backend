@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ak2</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="conatiner" class="round">
+<header class="round">
+  <h1>Narom</h1>
+<nav>
+  <% if current_user %>
+    <%= link_to "Log out", log_out_path %>
+
+  <% end %>
+</nav>
+  </header>
+
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, id: "flash_#{name}" %>
+<% end %>
+<section>
+<%= yield %>
+</section>
+</div>
+</body>
+</html>
